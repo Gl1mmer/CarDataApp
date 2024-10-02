@@ -8,11 +8,13 @@
 import UIKit
 
 class AboutUsViewController: UIViewController {
+    
     private let scrollView: UIScrollView = {
         let scv = UIScrollView()
         scv.translatesAutoresizingMaskIntoConstraints = false
         return scv
     }()
+    
     private let stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
@@ -20,12 +22,14 @@ class AboutUsViewController: UIViewController {
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
+    
     private let topImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "details")
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
+    
     let label1: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -35,6 +39,7 @@ class AboutUsViewController: UIViewController {
         label.textColor = .black
         return label
     }()
+    
     let label2: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -45,6 +50,7 @@ class AboutUsViewController: UIViewController {
         label.textColor = .black
         return label
     }()
+    
     let label3: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -55,6 +61,7 @@ class AboutUsViewController: UIViewController {
         label.textColor = .black
         return label
     }()
+    
     let label4: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -65,11 +72,13 @@ class AboutUsViewController: UIViewController {
         label.textColor = .black
         return label
     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         
     }
+    
     private func setupUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
@@ -78,6 +87,7 @@ class AboutUsViewController: UIViewController {
         stackView.addArrangedSubview(label2)
         stackView.addArrangedSubview(label3)
         stackView.addArrangedSubview(label4)
+        
         let scrollViewConstraints = [
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -109,6 +119,7 @@ class AboutUsViewController: UIViewController {
             label4.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 10),
             label4.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10)
         ]
+        
         NSLayoutConstraint.activate(topImageConstraints)
         NSLayoutConstraint.activate(scrollViewConstraints)
         NSLayoutConstraint.activate(stackViewConstraints)

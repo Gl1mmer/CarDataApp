@@ -19,5 +19,4 @@ struct HomeViewData {
         Item(logoImage: UIImage(named: "Toyota")!, carTitle: "Toyota"),
         Item(logoImage: UIImage(named: "Ford")!, carTitle: "Ford")
     ]
-
 }

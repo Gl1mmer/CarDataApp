@@ -12,7 +12,8 @@ class CarViewController: UIViewController{
     
     var carOrder : Int?
     var data = CarViewData()
-    let carLabel: UILabel = {
+    
+    private let carLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Car name is not given"
@@ -21,13 +22,15 @@ class CarViewController: UIViewController{
         label.textColor = .white
         return label
     }()
-    let carImageView: UIImageView = {
+    
+    private let carImageView: UIImageView = {
         let imageV = UIImageView()
         imageV.translatesAutoresizingMaskIntoConstraints = false
         imageV.image = UIImage(named: "questionmark")
         return imageV
     }()
-    let carDesciptionLabel: UILabel = {
+    
+    private let carDesciptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Car Description is not given"
@@ -37,6 +40,7 @@ class CarViewController: UIViewController{
         label.textColor = .lightText
         return label
     }()
+    
     private let stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
@@ -45,6 +49,7 @@ class CarViewController: UIViewController{
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
+    
     private let scrollView: UIScrollView = {
         let scv = UIScrollView()
         scv.translatesAutoresizingMaskIntoConstraints = false
@@ -54,11 +59,13 @@ class CarViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if let index = carOrder {
             carLabel.text = data.carData[index].mark
             carImageView.image = data.carData[index].image
             carDesciptionLabel.text = data.carData[index].carDescription
         }
+        
         setupUI()
     }
     
@@ -69,6 +76,7 @@ class CarViewController: UIViewController{
         stackView.addArrangedSubview(carLabel)
         stackView.addArrangedSubview(carImageView)
         stackView.addArrangedSubview(carDesciptionLabel)
+        
         let scrollViewConstraints = [
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -92,7 +100,9 @@ class CarViewController: UIViewController{
         ]
         let carDesciptionLabelConstraints = [
             carDesciptionLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 10),
-            carDesciptionLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10),        ]
+            carDesciptionLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10),
+        ]
+        
         NSLayoutConstraint.activate(scrollViewConstraints)
         NSLayoutConstraint.activate(stackViewConstraints)
         NSLayoutConstraint.activate(carImageViewConsraints)
